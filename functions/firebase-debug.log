@@ -1,0 +1,82 @@
+[debug] [2023-05-17T20:02:35.983Z] ----------------------------------------------------------------------
+[debug] [2023-05-17T20:02:35.985Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\42194\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only functions
+[debug] [2023-05-17T20:02:35.986Z] CLI Version:   11.28.0
+[debug] [2023-05-17T20:02:35.986Z] Platform:      win32
+[debug] [2023-05-17T20:02:35.986Z] Node Version:  v18.14.0
+[debug] [2023-05-17T20:02:35.987Z] Time:          Wed May 17 2023 22:02:35 GMT+0200 (stredoeurópsky letný čas)
+[debug] [2023-05-17T20:02:35.988Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-17T20:02:36.086Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-17T20:02:36.087Z] > authorizing via signed-in user (masterkooo@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2023-05-17T20:02:36.138Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-05-17T20:02:36.139Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project food-app-frdrk00. This may result in unexpected behavior. 
+[debug] [2023-05-17T20:02:36.154Z] [hub] writing locator at C:\Users\42194\AppData\Local\Temp\hub-food-app-frdrk00.json
+[debug] [2023-05-17T20:02:36.250Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-05-17T20:02:36.251Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2023-05-17T20:02:36.252Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage\u001b[22m"}}
+[debug] [2023-05-17T20:02:36.258Z] defaultcredentials: writing to file C:\Users\42194\AppData\Roaming\firebase\masterkooo_gmail_com_application_default_credentials.json
+[debug] [2023-05-17T20:02:36.285Z] Setting GAC to C:\Users\42194\AppData\Roaming\firebase\masterkooo_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\42194\\AppData\\Roaming\\firebase\\masterkooo_gmail_com_application_default_credentials.json"}}
+[debug] [2023-05-17T20:02:36.287Z] > refreshing access token with scopes: []
+[debug] [2023-05-17T20:02:36.289Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-05-17T20:02:36.289Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-05-17T20:02:36.545Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-05-17T20:02:36.545Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-05-17T20:02:36.564Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/food-app-frdrk00/adminSdkConfig [none]
+[debug] [2023-05-17T20:02:36.876Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/food-app-frdrk00/adminSdkConfig 200
+[debug] [2023-05-17T20:02:36.876Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/food-app-frdrk00/adminSdkConfig {"projectId":"food-app-frdrk00","storageBucket":"food-app-frdrk00.appspot.com","locationId":"europe-west"}
+[debug] [2023-05-17T20:02:36.903Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-05-17T20:02:36.903Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-05-17T20:02:36.903Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\42194\\.cache\\firebase\\emulators\\ui-v1.11.5\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\42194\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.5\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-05-17T20:02:37.148Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2023-05-17T20:02:37.149Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[info] i  functions: Watching "C:\Users\42194\Documents\CODE\Apps\ReactJS\food-app-fullstack\server\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\42194\\Documents\\CODE\\Apps\\ReactJS\\food-app-fullstack\\server\\functions\" for Cloud Functions..."}}
+[debug] [2023-05-17T20:02:37.193Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2023-05-17T20:02:39.742Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "firebase-admin": "^11.5.0",
+    "firebase-functions": "^4.2.0",
+    "stripe": "^12.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.40.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.8.0",
+    "firebase-functions-test": "^3.0.0",
+    "prettier": "^2.8.8"
+  },
+  "private": true
+}
+[debug] [2023-05-17T20:02:39.742Z] Building nodejs source
+[debug] [2023-05-17T20:02:39.743Z] Failed to find version of module node: reached end of search path C:\Users\42194\Documents\CODE\Apps\ReactJS\food-app-fullstack\server\functions\node_modules
+[warn] !  functions: Your requested "node" version "16" doesn't match your global version "18". Using node@18 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2023-05-17T20:02:39.753Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-05-17T20:02:39.769Z] Found firebase-functions binary at 'C:\Users\42194\Documents\CODE\Apps\ReactJS\food-app-fullstack\server\functions\node_modules\.bin\firebase-functions'
