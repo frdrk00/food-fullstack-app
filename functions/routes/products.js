@@ -189,6 +189,14 @@ router.get("/getCartItems/:user_id", async (req, res) => {
 
 router.post('/create-checkout-session', async (req, res) => {
 
+    const customer = await stripe.customers.create({
+        metadata: {
+            user_id: req.body.data.user.user_id,
+            cart: JSON.stringify(req.body.data.cart),
+            total: req.body.data.total,
+        }
+    })
+
     const line_items = req.body.data.cart.map(item => {
         return {
             price_data: {
@@ -237,6 +245,7 @@ router.post('/create-checkout-session', async (req, res) => {
     enabled: true,
   },
     line_items,
+    customer: customer.id,
     mode: 'payment',
     success_url: `${process.env.CLIENT_URL}/checkout-success`,
     cancel_url: `${process.env.CLIENT_URL}/`,
@@ -273,11 +282,52 @@ router.post('/webhook', express.raw({type: 'application/json'}), (req, res) => {
 
   // Handle the event
   if (eventType === "checkout.session.completed") {
-    console.log(data);
+    stripe.customers.retrieve(data.customer).then(customer => {
+       // console.log('Customer details', customer);
+       // console.log('Data', data);
+        createOrder(customer, data, res)
+    })
   }
 
   // Return a 200 res to acknowledge receipt of the event
-  res.send();
+  res.send().end();
 });
+
+const createOrder = async (customer, intent, res) => {
+    console.log('Inside the orders')
+
+    const deleteCart = async (userId, items) => {
+        items.map(async (data) => {
+            await db
+            .collection("cartItems")
+            .doc(`/${userId}/`)
+            .collection("items")
+            .doc(`/${data.productId}/`)
+            .delete()
+            .then()
+        })
+    }
+    try {
+        const orderId = Date.now();
+        const data = {
+            intentId: intent.id,
+            orderId: orderId,
+            amount: intent.created,
+            payment_method_types: intent.payment_method_types,
+            status: intent.payment_status,
+            customer: intent.customer_details,
+            shipping_details: intent.shipping_details,
+            userId: customer.metadata.user_id,
+            items: JSON.parse(customer.metadata.cart),
+            total: customer.metadata.total,
+            sts: 'preparing',
+        };
+        await db.collection('orders').doc(`/${orderId}/`).set(data);
+        deleteCart(customer.metadata.user_id, JSON.parse(customer.metadata.cart))
+        return res.status(200).send({ success: true })
+    } catch (err) {
+        console.log(err);
+    }    
+}
 
 module.exports = router;
